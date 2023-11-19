@@ -1,26 +1,29 @@
 package org.example.controller;
 
-import org.example.observer.DeviceObserver;
 import org.example.model.Device;
+import org.example.observer.DeviceObserver;
 
 import java.util.ArrayList;
 import java.util.List;
 
 // Concrete Subject (SmartHomeController)
-public class SmartHomeControllerWithObserver implements DeviceObserver,SmartHomeController {
+public class SmartHomeControllerWithObserver implements DeviceObserver, SmartHomeController {
     private List<Device> devices;
     private static SmartHomeControllerWithObserver instance;
 
     private int nrOfOnDevices;
+
     private SmartHomeControllerWithObserver() {
         devices = new ArrayList<>();
     }
+
     public static synchronized SmartHomeControllerWithObserver getInstance() {
         if (instance == null) {
             instance = new SmartHomeControllerWithObserver();
         }
         return instance;
     }
+
     public void addDevice(Device device) {
         devices.add(device);
         device.addObserver(this);
@@ -47,10 +50,9 @@ public class SmartHomeControllerWithObserver implements DeviceObserver,SmartHome
     public void update(Device device) {
         // Handle device updates if needed
         System.out.println("SmartHomeController received an update from " + device.getName());
-        if(device.isOn()){
+        if (device.isOn()) {
             nrOfOnDevices++;
-        }
-        else{
+        } else {
             nrOfOnDevices--;
         }
     }

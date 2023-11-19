@@ -3,7 +3,7 @@ package org.example;
 import java.text.NumberFormat;
 
 public class Utils {
-    public static void printMemory(){
+    public static void printMemory() {
         Runtime runtime = Runtime.getRuntime();
 
         NumberFormat format = NumberFormat.getInstance();

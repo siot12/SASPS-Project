@@ -1,7 +1,7 @@
 package org.example.model;
 
 
-class DeviceWithoutObserver {
+public class DeviceWithoutObserver {
     private String name;
     private boolean isOn;
 

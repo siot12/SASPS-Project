@@ -38,7 +38,7 @@ public class Device implements DeviceSubject {
         observers.remove(observer);
     }
 
-     public void notifyObservers() {
+    public void notifyObservers() {
         for (DeviceObserver observer : observers) {
             observer.update(this);
         }

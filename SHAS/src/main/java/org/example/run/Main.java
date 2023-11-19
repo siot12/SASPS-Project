@@ -4,16 +4,15 @@ import org.example.Utils;
 import org.example.controller.SmartHomeControllerWithObserver;
 import org.example.model.Device;
 
-import java.text.NumberFormat;
-
 public class Main {
     static SmartHomeControllerWithObserver controller;
+
     public static void main(String[] args) {
         Utils.printMemory();
 
         long start = System.currentTimeMillis();
 
-        for(int i = 0 ; i <= 10000000; i++) {
+        for (int i = 0; i <= 10000000; i++) {
             controller = SmartHomeControllerWithObserver.getInstance();
         }
         Device light = new Device("Living Room Light");

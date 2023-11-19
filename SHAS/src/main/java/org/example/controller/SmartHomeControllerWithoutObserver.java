@@ -1,19 +1,20 @@
 package org.example.controller;
 
 import org.example.model.Device;
+import org.example.model.DeviceWithoutObserver;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SmartHomeControllerWithoutObserver implements SmartHomeController{
-    private List<Device> devices;
+public class SmartHomeControllerWithoutObserver implements SmartHomeController {
+    private List<DeviceWithoutObserver> devices;
     public int nrOfOnDevices;
 
     public SmartHomeControllerWithoutObserver() {
         devices = new ArrayList<>();
     }
 
-    public void addDevice(Device device) {
+    public void addDevice(DeviceWithoutObserver device) {
         devices.add(device);
     }
 
@@ -22,14 +23,14 @@ public class SmartHomeControllerWithoutObserver implements SmartHomeController{
     }
 
     public void turnOnAllDevices() {
-        for (Device device : devices) {
+        for (DeviceWithoutObserver device : devices) {
             device.turnOn();
             nrOfOnDevices++;
         }
     }
 
     public void turnOffAllDevices() {
-        for (Device device : devices) {
+        for (DeviceWithoutObserver device : devices) {
             device.turnOff();
             nrOfOnDevices--;
         }
