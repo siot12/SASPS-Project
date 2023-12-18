@@ -38,6 +38,14 @@ public class Device implements DeviceSubject {
         observers.remove(observer);
     }
 
+    @Override
+    public String toString() {
+        return "Device{" +
+                "name='" + name + '\'' +
+                ", isOn=" + isOn +
+                '}';
+    }
+
     public void notifyObservers() {
         for (DeviceObserver observer : observers) {
             observer.update(this);

@@ -1,11 +1,12 @@
 package org.example.model;
 
+import org.example.observer.DeviceObserver;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Room {
-
-
-    List<Wall> walls;
+public class Room implements DeviceObserver {
+    List<Wall> walls = new ArrayList<>();
     Floor floor;
     Ceiling ceiling;
 
@@ -31,6 +32,20 @@ public class Room {
 
     public void setCeiling(Ceiling ceiling) {
         this.ceiling = ceiling;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "walls=" + walls +
+                ", floor=" + floor +
+                ", ceiling=" + ceiling +
+                '}';
+    }
+
+    @Override
+    public void update(Device device) {
+        System.out.println("Room updated by device " + device.getName());
     }
 
     public static class RoomBuilder {
