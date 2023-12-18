@@ -2,6 +2,7 @@ package org.example.controller;
 
 import org.example.model.Device;
 import org.example.model.DeviceWithoutObserver;
+import org.example.model.Room;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +11,11 @@ public class SmartHomeControllerWithoutObserver implements SmartHomeController {
     private List<DeviceWithoutObserver> devices;
     public int nrOfOnDevices;
 
+    private List<Room> rooms;
+
     public SmartHomeControllerWithoutObserver() {
         devices = new ArrayList<>();
+        rooms = new ArrayList<>();
     }
 
     public void addDevice(DeviceWithoutObserver device) {
@@ -40,4 +44,11 @@ public class SmartHomeControllerWithoutObserver implements SmartHomeController {
     public int getNrOfOnDevices() {
         return nrOfOnDevices;
     }
+
+    @Override
+    public void addRoom(Room room) {
+
+    }
+
+
 }

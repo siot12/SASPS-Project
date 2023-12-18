@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.model.Device;
+import org.example.model.Room;
 import org.example.observer.DeviceObserver;
 
 import java.util.ArrayList;
@@ -9,12 +10,14 @@ import java.util.List;
 // Concrete Subject (SmartHomeController)
 public class SmartHomeControllerWithObserver implements DeviceObserver, SmartHomeController {
     private List<Device> devices;
+    private List<Room> rooms;
     private static SmartHomeControllerWithObserver instance;
 
     private int nrOfOnDevices;
 
-    private SmartHomeControllerWithObserver() {
+    public SmartHomeControllerWithObserver() {
         devices = new ArrayList<>();
+        rooms = new ArrayList<>();
     }
 
     public static synchronized SmartHomeControllerWithObserver getInstance() {
@@ -61,4 +64,11 @@ public class SmartHomeControllerWithObserver implements DeviceObserver, SmartHom
     public int getNrOfOnDevices() {
         return nrOfOnDevices;
     }
+
+    @Override
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+
+
 }
