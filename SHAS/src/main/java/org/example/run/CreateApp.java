@@ -13,6 +13,8 @@ public class CreateApp {
     static SmartHomeControllerWithObserver controller = new SmartHomeControllerWithObserver();
 
     static DoorFactory doorFactory;
+    static String ENTER_WIDTH_TEXT = "Enter width:";
+    static String ENTER_HEIGHT_TEXT = "Enter height:";
 
     static List<Device> devices = List.of(new Device("Termostat"), new Device("Bec"), new Device("Intrerupator"));
 
@@ -39,10 +41,10 @@ public class CreateApp {
                     }
                     if (cmd2 == 1) {
                         Wall.WallBuilder wallBuilder = new Wall.WallBuilder();
-                        System.out.println("Enter height:");
+                        System.out.println(ENTER_HEIGHT_TEXT);
                         int height = sc.nextInt();
                         wallBuilder.height(height);
-                        System.out.println("Enter width:");
+                        System.out.println(ENTER_WIDTH_TEXT);
                         int width = sc.nextInt();
                         wallBuilder.width(width);
                         System.out.println("Enter number of default windows: ");
@@ -61,9 +63,9 @@ public class CreateApp {
                             } else {
                                 doorFactory = new SteelDoorFactory();
                             }
-                            System.out.println("Enter height:");
+                            System.out.println(ENTER_HEIGHT_TEXT);
                             int doorHeight = sc.nextInt();
-                            System.out.println("Enter width:");
+                            System.out.println(ENTER_WIDTH_TEXT);
                             int doorWidth = sc.nextInt();
                             wallBuilder.door(doorFactory.createDoor(doorHeight, doorWidth));
                         }
@@ -71,7 +73,7 @@ public class CreateApp {
                     } else if (cmd2 == 2) {
                         System.out.println("Enter length:");
                         int length = sc.nextInt();
-                        System.out.println("Enter width:");
+                        System.out.println(ENTER_WIDTH_TEXT);
                         int width = sc.nextInt();
                         roomBuilder.ceiling(new Ceiling(length, width)).floor(new Floor(length, width));
                     } else if (cmd2 == 3) {
@@ -90,7 +92,6 @@ public class CreateApp {
                         System.out.println("Invalid cmd");
                         break;
                     }
-
                 }
             }
             if (cmd == 2) {
